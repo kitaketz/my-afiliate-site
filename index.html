@@ -1,64 +1,117 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>プライバシーポリシー｜海旅　ダイビングポータル</title>
+  <meta charset="utf-8" />
+  <title>ダイビングポータル｜動作確認版</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin />
   <style>
-    body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; color: #333; }
-    h1, h2 { color: #0077cc; }
-    a { color: #0077cc; text-decoration: none; }
-    a:hover { text-decoration: underline; }
+    body { margin:0; font-family:sans-serif; background:#f8f9fa; color:#333; }
+    .container { max-width:1200px; margin:auto; padding:0 12px; }
+    h1,h2 { text-align:center; margin:24px 0 12px; font-weight:600; }
+    .swiper { width:100%; padding:12px 0; overflow:hidden; }
+    .swiper-slide { width: calc((100% - 50px)/6); height:200px; border-radius:8px;
+                    box-shadow:0 2px 8px rgba(0,0,0,0.15); overflow:hidden; }
+    .swiper-slide img { width:100%; height:100%; object-fit:cover; }
+    .swiper-button-prev, .swiper-button-next { color:#0077cc; }
+    #map { height:350px; width:100%; border-radius:10px; margin-bottom:24px; }
+    
+    /* 読者投稿エリアのセンタリング調整 */
+    .reader-posts { display:flex; justify-content: center; gap:12px; overflow-x:auto; padding-bottom:12px; }
+    .reader-post { flex:0 0 auto; width:220px; background:white; border-radius:8px;
+                   box-shadow:0 2px 8px rgba(0,0,0,0.1); overflow:hidden; }
+    .reader-post img { width:100%; height:140px; object-fit:cover; }
+    .reader-post-info { padding:10px; font-size:14px; }
+
+    .article-list { margin:24px 0; padding-bottom:40px; }
+    .article-item { background:white; border-radius:6px; padding:12px 16px; margin-bottom:12px;
+                    box-shadow:0 1px 4px rgba(0,0,0,0.1); cursor:pointer; transition:background .2s; }
+    .article-item:hover { background:#eef; }
+    .article-title { font-size:16px; color:#0077cc; font-weight:600; margin-bottom:4px; }
+    .article-desc { font-size:14px; color:#555; }
+
+    @media(max-width:600px){
+      .swiper-slide { height:140px; }
+      .reader-post { width:160px; }
+      #map { height:240px; }
+    }
   </style>
 </head>
 <body>
-  <h1>プライバシーポリシー</h1>
-  <p>本ページは、個人事業主「海旅　ダイビングポータル」（以下「当社」）が運営するウェブサービスにおける、個人情報の取り扱いについて定めたものです。</p>
+  <div class="container">
+    <h1>仮タイトル：ダイビングポータル</h1>
+    <h2>Instagram投稿ピックアップ</h2>
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="https://via.placeholder.com/200?text=1"></div>
+        <div class="swiper-slide"><img src="https://via.placeholder.com/200?text=2"></div>
+        <div class="swiper-slide"><img src="https://via.placeholder.com/200?text=3"></div>
+        <div class="swiper-slide"><img src="https://via.placeholder.com/200?text=4"></div>
+        <div class="swiper-slide"><img src="https://via.placeholder.com/200?text=5"></div>
+        <div class="swiper-slide"><img src="https://via.placeholder.com/200?text=6"></div>
+        <div class="swiper-slide"><img src="https://via.placeholder.com/200?text=7"></div>
+        <div class="swiper-slide"><img src="https://via.placeholder.com/200?text=8"></div>
+        <div class="swiper-slide"><img src="https://via.placeholder.com/200?text=9"></div>
+        <div class="swiper-slide"><img src="https://via.placeholder.com/200?text=10"></div>
+        <div class="swiper-slide"><img src="https://via.placeholder.com/200?text=11"></div>
+        <div class="swiper-slide"><img src="https://via.placeholder.com/200?text=12"></div>
+      </div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
 
-  <h2>1. 収集する情報</h2>
-  <ul>
-    <li>Instagram／Facebook連携時に取得されるユーザー名、プロフィール画像、メールアドレスなど（<code>public_profile</code>、<code>email</code> 権限による）</li>
-    <li>本サービス上でユーザーが投稿する写真、コメントなど（任意提供）</li>
-  </ul>
+    <h2>ダイビングエリアを探す</h2>
+    <div id="map"></div>
 
-  <h2>2. 情報の取得方法</h2>
-  <ul>
-    <li>OAuth を利用した Instagram／Facebook アカウント連携</li>
-    <li>ユーザーによる投稿フォームの入力</li>
-  </ul>
+    <h2>読者の体験投稿</h2>
+    <!-- ここを4つに変更し、センタリング -->
+    <div class="reader-posts">
+      <div class="reader-post"><img src="https://via.placeholder.com/220x140?text=投稿1"><div class="reader-post-info">セブ島で初ダイブ！魚がいっぱい</div></div>
+      <div class="reader-post"><img src="https://via.placeholder.com/220x140?text=投稿2"><div class="reader-post-info">ボホール島のサンゴが美しい</div></div>
+      <div class="reader-post"><img src="https://via.placeholder.com/220x140?text=投稿3"><div class="reader-post-info">伊豆で穏やかな海を満喫</div></div>
+      <div class="reader-post"><img src="https://via.placeholder.com/220x140?text=投稿4"><div class="reader-post-info">沖縄の透明な海が最高だった！</div></div>
+    </div>
 
-  <h2>3. 利用目的</h2>
-  <ul>
-    <li>ユーザー認証およびアカウント識別</li>
-    <li>投稿情報の可視化および表示</li>
-    <li>サービス改善のための統計分析</li>
-  </ul>
+    <h2>最新記事</h2>
+    <div class="article-list">
+      <div class="article-item"><div class="article-title">最新ダイビングギア登場！</div><div class="article-desc">2025年の注目アイテムをご紹介</div></div>
+      <div class="article-item"><div class="article-title">セブ島のショップ5選</div><div class="article-desc">初心者向けショップを厳選！</div></div>
+      <div class="article-item"><div class="article-title">マルタ島の海中遺跡ガイド</div><div class="article-desc">神秘的スポットを探検</div></div>
+      <div class="article-item"><div class="article-title">伊豆 vs 沖縄 ダイブ比較</div><div class="article-desc">どちらが向いている？</div></div>
+      <div class="article-item"><div class="article-title">モルディブの海に迫る</div><div class="article-desc">透明度世界No.1の実力とは</div></div>
+    </div>
+  </div>
 
-  <h2>4. 第三者提供について</h2>
-  <p>法令に基づく場合やユーザーの同意がある場合を除き、収集した情報を第三者に提供することはありません。</p>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin></script>
+  <script>
+    const swiper = new Swiper('.swiper', {
+      slidesPerView: 6,
+      spaceBetween: 10,
+      loop: true,
+      autoplay: { delay: 3000, disableOnInteraction: false },
+      navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+    });
 
-  <h2>5. 保管期間および安全対策</h2>
-  <ul>
-    <li>取得情報は目的達成後に速やかに削除します</li>
-    <li>SSL暗号化、アクセス制限などにより不正アクセスを防止します</li>
-  </ul>
+    const map = L.map('map').setView([20, 0], 2);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: 'c OpenStreetMap contributors'
+    }).addTo(map);
 
-  <h2>6. ユーザー権利</h2>
-  <p>ユーザーは、当社が保有する自身の情報について、<strong>開示・訂正・削除・利用停止</strong>を請求することができます。下記連絡先までお知らせください。</p>
-
-  <h2>7. お問い合わせ</h2>
-  <p>
-    メールアドレス：<a href="mailto:kitaketz@gmail.com">kitaketz@gmail.com</a><br>
-    居住地：静岡県藤枝市（詳細な住所は非公開としています）
-  </p>
-
-  <h2>8. 制度改定</h2>
-  <p>本ポリシーは必要に応じて改定されます。最新の有効日は本ページ冒頭に記載しています。</p>
-
-  <p style="margin-top: 40px; font-size:0.9em; color:#666;">
-    &copy; 2025 海旅　ダイビングポータル（個人事業主）<br>
-    最終更新日：2025年7月15日
-  </p>
+    const areas = [
+      {name:'セブ島', coord:[10.3157,123.8854], url:'#'},
+      {name:'ボホール島', coord:[9.8859,124.2140], url:'#'},
+      {name:'バリ島', coord:[-8.4095,115.1889], url:'#'},
+      {name:'グレートバリアリーフ', coord:[-18.2871,147.6992], url:'#'},
+      {name:'モルディブ', coord:[3.2028,73.2207], url:'#'},
+      {name:'伊豆', coord:[34.9616,138.9481], url:'#'},
+      {name:'沖縄', coord:[26.2124,127.6809], url:'#'}
+    ];
+    areas.forEach(a=>{
+      L.marker(a.coord).addTo(map)
+        .bindPopup(`<b>${a.name}</b><br><a href="${a.url}">エリア詳細へ</a>`);
+    });
+  </script>
 </body>
 </html>
-
