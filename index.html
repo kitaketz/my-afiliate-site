@@ -1,12 +1,13 @@
 ﻿<!DOCTYPE html>
+
 <html lang="ja">
 <head>
-  <meta charset="utf-8" />
-  <title>ダイビングポータル｜動作確認版</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin />
-  <style>
+<meta charset="utf-8"/>
+<title>ダイビングポータル｜動作確認版</title>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" rel="stylesheet"/>
+<style>
     body { margin:0; font-family:sans-serif; background:#f8f9fa; color:#333; }
     .container { max-width:1200px; margin:auto; padding:0 12px; }
     h1,h2 { text-align:center; margin:24px 0 12px; font-weight:600; }
@@ -39,53 +40,58 @@
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>仮タイトル：ダイビングポータル</h1>
-    <h2>Instagram投稿ピックアップ</h2>
-    <div class="swiper">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="https://via.placeholder.com/200?text=1"></div>
-        <div class="swiper-slide"><img src="https://via.placeholder.com/200?text=2"></div>
-        <div class="swiper-slide"><img src="https://via.placeholder.com/200?text=3"></div>
-        <div class="swiper-slide"><img src="https://via.placeholder.com/200?text=4"></div>
-        <div class="swiper-slide"><img src="https://via.placeholder.com/200?text=5"></div>
-        <div class="swiper-slide"><img src="https://via.placeholder.com/200?text=6"></div>
-        <div class="swiper-slide"><img src="https://via.placeholder.com/200?text=7"></div>
-        <div class="swiper-slide"><img src="https://via.placeholder.com/200?text=8"></div>
-        <div class="swiper-slide"><img src="https://via.placeholder.com/200?text=9"></div>
-        <div class="swiper-slide"><img src="https://via.placeholder.com/200?text=10"></div>
-        <div class="swiper-slide"><img src="https://via.placeholder.com/200?text=11"></div>
-        <div class="swiper-slide"><img src="https://via.placeholder.com/200?text=12"></div>
-      </div>
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
-    </div>
+<div class="container">
+<h1>仮タイトル：ダイビングポータル</h1>
+<h2>Instagram投稿ピックアップ</h2>
+<div class="swiper">
+<div class="swiper-wrapper">
+<div class="swiper-slide"><img src="https://via.placeholder.com/200?text=1"/></div>
+<div class="swiper-slide"><img src="https://via.placeholder.com/200?text=2"/></div>
+<div class="swiper-slide"><img src="https://via.placeholder.com/200?text=3"/></div>
+<div class="swiper-slide"><img src="https://via.placeholder.com/200?text=4"/></div>
+<div class="swiper-slide"><img src="https://via.placeholder.com/200?text=5"/></div>
+<div class="swiper-slide"><img src="https://via.placeholder.com/200?text=6"/></div>
+<div class="swiper-slide"><img src="https://via.placeholder.com/200?text=7"/></div>
+<div class="swiper-slide"><img src="https://via.placeholder.com/200?text=8"/></div>
+<div class="swiper-slide"><img src="https://via.placeholder.com/200?text=9"/></div>
+<div class="swiper-slide"><img src="https://via.placeholder.com/200?text=10"/></div>
+<div class="swiper-slide"><img src="https://via.placeholder.com/200?text=11"/></div>
+<div class="swiper-slide"><img src="https://via.placeholder.com/200?text=12"/></div>
+</div>
+<div class="swiper-button-prev"></div>
+<div class="swiper-button-next"></div>
+</div>
+<h2>ダイビングエリアを探す</h2>
+<div id="map"></div>
+<h2>読者の体験投稿</h2>
+<!-- ここを4つに変更し、センタリング -->
+<div class="reader-posts">
+<div class="reader-post"><img src="https://via.placeholder.com/220x140?text=投稿1"/><div class="reader-post-info">セブ島で初ダイブ！魚がいっぱい</div></div>
+<div class="reader-post"><img src="https://via.placeholder.com/220x140?text=投稿2"/><div class="reader-post-info">ボホール島のサンゴが美しい</div></div>
+<div class="reader-post"><img src="https://via.placeholder.com/220x140?text=投稿3"/><div class="reader-post-info">伊豆で穏やかな海を満喫</div></div>
+<div class="reader-post"><img src="https://via.placeholder.com/220x140?text=投稿4"/><div class="reader-post-info">沖縄の透明な海が最高だった！</div></div>
 
-    <h2>ダイビングエリアを探す</h2>
-    <div id="map"></div>
-
-    <h2>読者の体験投稿</h2>
-    <!-- ここを4つに変更し、センタリング -->
-    <div class="reader-posts">
-      <div class="reader-post"><img src="https://via.placeholder.com/220x140?text=投稿1"><div class="reader-post-info">セブ島で初ダイブ！魚がいっぱい</div></div>
-      <div class="reader-post"><img src="https://via.placeholder.com/220x140?text=投稿2"><div class="reader-post-info">ボホール島のサンゴが美しい</div></div>
-      <div class="reader-post"><img src="https://via.placeholder.com/220x140?text=投稿3"><div class="reader-post-info">伊豆で穏やかな海を満喫</div></div>
-      <div class="reader-post"><img src="https://via.placeholder.com/220x140?text=投稿4"><div class="reader-post-info">沖縄の透明な海が最高だった！</div></div>
-    </div>
-
-    <h2>最新記事</h2>
-    <div class="article-list">
-      <div class="article-item"><div class="article-title">最新ダイビングギア登場！</div><div class="article-desc">2025年の注目アイテムをご紹介</div></div>
-      <div class="article-item"><div class="article-title">セブ島のショップ5選</div><div class="article-desc">初心者向けショップを厳選！</div></div>
-      <div class="article-item"><div class="article-title">マルタ島の海中遺跡ガイド</div><div class="article-desc">神秘的スポットを探検</div></div>
-      <div class="article-item"><div class="article-title">伊豆 vs 沖縄 ダイブ比較</div><div class="article-desc">どちらが向いている？</div></div>
-      <div class="article-item"><div class="article-title">モルディブの海に迫る</div><div class="article-desc">透明度世界No.1の実力とは</div></div>
-    </div>
-  </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin></script>
-  <script>
+<!-- ▼ Instagram表示ブロック ▼ -->
+<div class="insta-card" style="width: 150px;">
+<div class="insta-image-container" style="width: 150px; height: 188px; overflow: hidden;">
+<img alt="Instagram Image" onclick="document.getElementById('popup').style.display='flex'" src="https://scontent.cdninstagram.com/v/t51.82787-15/520724022_17876894262369232_3519739739082874_n.jpg" style="width: 100%; height: auto;"/>
+</div>
+<div class="insta-caption" style="font-size: 14px; margin-top: 5px;">#モアルボアル #ダイビング</div>
+</div>
+<!-- ▲ Instagram表示ブロック ▲ -->
+</div>
+<h2>最新記事</h2>
+<div class="article-list">
+<div class="article-item"><div class="article-title">最新ダイビングギア登場！</div><div class="article-desc">2025年の注目アイテムをご紹介</div></div>
+<div class="article-item"><div class="article-title">セブ島のショップ5選</div><div class="article-desc">初心者向けショップを厳選！</div></div>
+<div class="article-item"><div class="article-title">マルタ島の海中遺跡ガイド</div><div class="article-desc">神秘的スポットを探検</div></div>
+<div class="article-item"><div class="article-title">伊豆 vs 沖縄 ダイブ比較</div><div class="article-desc">どちらが向いている？</div></div>
+<div class="article-item"><div class="article-title">モルディブの海に迫る</div><div class="article-desc">透明度世界No.1の実力とは</div></div>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script crossorigin="" src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
     const swiper = new Swiper('.swiper', {
       slidesPerView: 6,
       spaceBetween: 10,
@@ -113,5 +119,25 @@
         .bindPopup(`<b>${a.name}</b><br><a href="${a.url}">エリア詳細へ</a>`);
     });
   </script>
+
+<!-- Instagramポップアップ -->
+<div class="popup-overlay" id="popup" onclick="this.style.display='none'" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); justify-content:center; align-items:center; z-index:1000;">
+<div class="popup-content" onclick="event.stopPropagation()" style="background:#fff; padding:20px; border-radius:10px; max-width:90%; max-height:90%; position:relative; text-align:center;">
+<span class="popup-close" onclick="document.getElementById('popup').style.display='none'" style="position:absolute; top:10px; right:10px; font-size:24px; cursor:pointer;">×</span>
+<span class="carousel-nav carousel-left" onclick="changeImage(-1)" style="position:absolute; top:50%; left:0; transform:translateY(-50%); font-size:32px; color:#000; cursor:pointer; padding:0 20px;">‹</span>
+<img alt="Carousel" id="popupImage" src="https://scontent.cdninstagram.com/v/t51.82787-15/520724022_17876894262369232_3519739739082874_n.jpg" style="max-width:100%; max-height:60vh; border-radius:10px;"/>
+<span class="carousel-nav carousel-right" onclick="changeImage(1)" style="position:absolute; top:50%; right:0; transform:translateY(-50%); font-size:32px; color:#000; cursor:pointer; padding:0 20px;">›</span>
+</div>
+</div>
+<script>
+  const images = [
+    "https://scontent.cdninstagram.com/v/t51.82787-15/520724022_17876894262369232_3519739739082874_n.jpg"
+  ];
+  let currentIndex = 0;
+  function changeImage(direction) {
+    currentIndex = (currentIndex + direction + images.length) % images.length;
+    document.getElementById('popupImage').src = images[currentIndex];
+  }
+</script>
 </body>
 </html>
